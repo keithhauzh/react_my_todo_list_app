@@ -7,7 +7,6 @@ function Item(task) {
             >
                 <div className="d-flex align-items-center">
                     {/* Check */}
-                    <form action="task/check" method="POST">
                         { isCompleted === true 
                         ? 
                         <button className="btn btn-sm btn-success">
@@ -18,19 +17,18 @@ function Item(task) {
                         <i className="bi bi-square"></i>
                         </button> 
                         }
-                    </form>
 
                     <span className="ms-2">
                         {text}
                     </span>
                 </div>
                 
-                <form style={{margin: 0,}}>
+                <div style={{margin: 0,}}>
                     <input type="hidden" name="id" />
                     <button className="btn btn-sm btn-danger" type="submit">
                         <i className="bi bi-trash"></i>
                     </button>
-                </form>
+                </div>
             </li>
             
         </div>   
