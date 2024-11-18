@@ -1,7 +1,6 @@
 import Item from "./item";
 
-function TodoList(task) {
-  const { todos } = task;
+function TodoList({ todos, onTodoDelete, onTodoCheck }) {
   return (
     <div
       className="card rounded shadow-sm mx-auto my-4"
@@ -9,10 +8,16 @@ function TodoList(task) {
         maxWidth: "500px",
       }}
     >
-    
-    <ul className="list-group d-flex">
-        {todos.map((text, isCompleted) => (
-        <Item {...text} {...isCompleted} />
+      <ul className="list-group">
+        {todos.map((todo) => (
+          <Item
+            key={todo.id}
+            id={todo.id}
+            text={todo.text}
+            isCompleted={todo.isCompleted}
+            onTodoDelete={onTodoDelete}
+            onTodoCheck={onTodoCheck}
+          />
         ))}
       </ul>
     </div>
